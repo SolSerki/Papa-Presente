@@ -5,14 +5,14 @@ using Unity.Tutorials.Editor;
 using UnityEngine;
 
 /// <summary>
-/// Manages Dialogue flows Carga un CSV de diálogos al inicio y gestiona el flujo de conversación.
+/// Manages Dialogue flows
 /// 
 /// Use:
 ///   1. Assign a CSV as TextAsset in the Inspector (in csvFile).
 ///   2. It loads the CSV file at start 
 ///   3. call StartDialogue("1").
 ///   4. Call Continue() when 'Continue' button is pushed
-///   5.  Calling TriggerResponse(bool) event when card dragged into response area will call next node
+///   5.  Calling TriggerResponse(polarity) event when card dragged into response area or card double clicked will call next node
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {
@@ -198,7 +198,7 @@ public class DialogueManager : MonoBehaviour
 
         if (_current.IsQuestion)
         {
-            Debug.LogWarning("[DialogueManager] Este nodo espera TriggerResponse(bool). Usá ese método.");
+            Debug.LogWarning("[DialogueManager] This node expects a response. It needs to use TriggerResponse(CardPolarity polarity).");
             return;
         }
 
