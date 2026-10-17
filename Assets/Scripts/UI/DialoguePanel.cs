@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class DialoguePanel : MonoBehaviour
 {
-    [Header("Referencias")]
+    [Header("References")]
     [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private TextMeshProUGUI characterNameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
