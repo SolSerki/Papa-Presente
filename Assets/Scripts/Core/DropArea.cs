@@ -14,10 +14,15 @@ public class DropArea : MonoBehaviour
 
         GameObject droppedObject = pointerData.pointerDrag;
 
-        // Ya tenés el objeto, buscás el componente que necesites
-        // por ejemplo:
-        // DialogueItem item = droppedObject.GetComponent<DialogueItem>();
-
-        Debug.Log("dropped: " + droppedObject.name);
+        CardData cardData = droppedObject.GetComponent<CardData>();
+        if (cardData != null)
+        {
+            dialogueManager.TriggerResponse(cardData.Polarity);
+            Debug.Log("dropped: " + droppedObject.name);
+        }
+        else
+        {
+            Debug.LogWarning("[DropArea.OnItemDropped] No CardData assigned to Prefab, assign one in the inspector");
+        }
     }
 }

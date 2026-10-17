@@ -2,15 +2,40 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+public static GameManager Instance { get; private set; }
+        void Start()
     {
-        
+        // add a line to load MainMenu
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        StartSingleton();
     }
+
+    private void StartSingleton()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void EndGame()
+    {
+        //flush data from playerDeck
+
+    }
+
+    public void FinishRun()
+    {
+        //switch to RunEnd scene
+        //win a card
+        //show continue and end game buttons
+    }
+    
 }
