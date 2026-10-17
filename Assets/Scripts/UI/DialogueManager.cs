@@ -1,8 +1,8 @@
-using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.Events;
-using System.Text;
 using System;
+using System.Collections.Generic;
+using System.Text;
+using Unity.Tutorials.Editor;
+using UnityEngine;
 
 /// <summary>
 /// Manages Dialogue flows Carga un CSV de diálogos al inicio y gestiona el flujo de conversación.
@@ -54,7 +54,6 @@ public class DialogueManager : MonoBehaviour
 
         _nodes.Clear();
 
-        // Dividir en líneas (compatible con \n y \r\n)
         string[] lines = csvFile.text.Split(new[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
 
         // Skip 1st row, headers
@@ -63,7 +62,7 @@ public class DialogueManager : MonoBehaviour
             string line = lines[i].Trim();
             if (string.IsNullOrEmpty(line)) continue;
 
-            string[] fields = ParseCSVLine(line);
+            String[] fields = ParseCSVLine(line);
 
             // expected columns: id, type, characterName, text, nextNodeId, presentId, absentId
             if (fields.Length < 6)
@@ -71,11 +70,18 @@ public class DialogueManager : MonoBehaviour
                 Debug.LogWarning($"[DialogueManager] row {i + 1} ignored. (less than 6 columns): {line}");
                 continue;
             }
+            String nodeType = fields[1].Trim();
+            if (nodeType.IsNotNullOrEmpty() && !Enum.TryParse<NodeType>(nodeType, false, out var type)
+             || !Enum.IsDefined(typeof(NodeType), nodeType))
+            {
+                Debug.LogWarning("Invalid NodeType");
+                continue;
+            }
 
             DialogueNode node = new DialogueNode
             {
                 id = fields[0].Trim(),
-                type = fields[1].Trim(),
+                type = Enum.Parse<NodeType>(nodeType, ignoreCase: false),
                 characterName = fields[2].Trim(),
                 text = fields[3].Trim(),
                 nextNodeId = fields[4].Trim(),
@@ -88,12 +94,7 @@ public class DialogueManager : MonoBehaviour
                 Debug.LogWarning($"[DialogueManager] row {i + 1} ignored: ID is empty.");
                 continue;
             }
-            if (string.IsNullOrEmpty(node.type) || (!Enum.TryParse<NodeType>(node.type, ignoreCase:false, out var nodeType) || 
-                !Enum.IsDefined(typeof(NodeType), nodeType)))
-            {
-                Debug.LogWarning($"[DialogueManager] row {i + 1} ignored: type not valid.");
-                continue;
-            }
+
 
                 if (_nodes.ContainsKey(node.id))
             {
@@ -208,6 +209,76 @@ public class DialogueManager : MonoBehaviour
         else
         {
             StartDialogue(_current.nextNodeId);
+        }
+    }
+
+    /// <summary>
+    /// When card dropped or a card is double clicked, it triggers a response
+    /// </summary>
+    /// <param name="polarity">polarty positive means a present dad, negative absent dad and neutral needs to be resolved.</param>
+    public void TriggerResponse(CardPolarity polarity)
+    {
+        if (_current == null)
+        {
+            Debug.LogWarning("[DialogueManager] No active dialogue.");
+            return;
+        }
+
+        if (!_current.IsQuestion || NodeType.NI.Equals(_current.type))
+        {
+            Debug.LogWarning("[DialogueManager] Current node does not expect drop event.");
+            return;
+        }
+
+
+        
+
+        string nextId = isPresentResult(polarity, _current.type) ? _current.presentId : _current.absentId;
+
+        if (string.IsNullOrEmpty(nextId))
+        {
+            EndDialogue();
+        }
+        else
+        {
+            StartDialogue(nextId);
+        }
+    }
+
+   private bool isPresentResult(CardPolarity polarity, NodeType nodeType)
+    {
+        switch (polarity){
+        case CardPolarity.Positive: 
+                return true;
+        case CardPolarity.Negative:
+                return false;
+        case CardPolarity.Neutral:
+                return ResolveNeutralByNodeType(nodeType);
+            default:
+                Debug.LogWarning("[DialogueManager] No valid Card Polarity.");
+                return false;
+
+    }
+            
+
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="nodeType"></param>
+    /// types can be A or B, NI (not indexable) nodes are not challenges
+    /// <returns> Node type A, response positively to a neutral card and type B negatively </returns>
+    private bool ResolveNeutralByNodeType(NodeType nodeType)
+    {
+        switch (nodeType)
+        {
+            case NodeType.A:
+                return true;
+            case NodeType.B:
+                return false;
+            default:
+                Debug.LogWarning("[DialogueManager] No valid Node/Challenge type.");
+                return false;
         }
     }
 }
