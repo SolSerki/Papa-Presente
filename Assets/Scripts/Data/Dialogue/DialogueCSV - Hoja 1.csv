@@ -1,0 +1,7 @@
+id,type,characterName,text,nextNodeId,presentId,absentId
+1,A,Esposa,Llamaron del colegio. Los chicos ya salieron y te están esperando hace 30 minutos,,1a,1b
+1a,NI,Esposa,"Un error lo tiene cualquiera. La maestra lo va a entender, pero la próxima prestá mas atención.",2,,
+1b,NI,Esposa,"Dejá, me ocupo yo.",2,,
+2,A,Esposa,"Poné a lavar el uniforme del colegio para mañana, está lleno de barro porque hoy llovió.",,2a,2b
+2a,NI,Esposa,"Ese blanco es impecable, ¿Lo fregaste antes?",,,
+2b,NI,Esposa,¿Cómo vamos a mandar a los chicos así? Van a decir que somos unos malos padres,,,
