@@ -20,6 +20,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextAsset csvFile;
     private string DEFAULT_INDEX = "1";
 
+    [Header("Outros")]
+    [Tooltip("Nodo con el que arranca el outro de cada final. Vacío o inexistente = se pasa directo a RunEnd.")]
+    [SerializeField] private string presentOutroId = "outroPresent1";
+    [SerializeField] private string absentOutroId = "outroAbsent1";
+    private bool outroStarted;
+
  
     /// <summary>Invoked to trigger a dialogue node.</summary>
     public event Action<DialogueNode> OnDialogueShow;
@@ -211,12 +217,29 @@ public class DialogueManager : MonoBehaviour
 
         if (_current.IsEnd)
         {
-            EndDialogue();
+            FinishConversation();
         }
         else
         {
             StartDialogue(_current.nextNodeId);
         }
+    }
+
+    /// <summary>
+    /// Al terminar el diálogo principal se muestra el outro del final que corresponda.
+    /// Cuando termina el outro, termina la run.
+    /// </summary>
+    private void FinishConversation()
+    {
+        string outroId = IsPresentEnding ? presentOutroId : absentOutroId;
+        if (!outroStarted && !string.IsNullOrEmpty(outroId) && _nodes.ContainsKey(outroId))
+        {
+            outroStarted = true;
+            StartDialogue(outroId);
+            return;
+        }
+
+        EndDialogue();
     }
 
     /// <summary>
@@ -247,7 +270,7 @@ public class DialogueManager : MonoBehaviour
 
         if (string.IsNullOrEmpty(nextId))
         {
-            EndDialogue();
+            FinishConversation();
         }
         else
         {

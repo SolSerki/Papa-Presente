@@ -17,7 +17,7 @@ public class CharacterView : MonoBehaviour
 
     [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private Image image;
-    [Tooltip("Si quien habla no está en la lista, queda el dibujo que estaba.")]
+    [Tooltip("Si quien habla no está en la lista, queda el dibujo que estaba. Un personaje sin dibujo oculta la imagen.")]
     [SerializeField] private List<CharacterSprite> characters = new List<CharacterSprite>();
 
     private void OnEnable()
@@ -37,7 +37,9 @@ public class CharacterView : MonoBehaviour
         {
             if (Normalize(character.characterName) == speaker)
             {
+                // Sin dibujo = no se muestra ningún personaje (por ejemplo, el narrador)
                 image.sprite = character.sprite;
+                image.enabled = character.sprite != null;
                 return;
             }
         }

@@ -10,6 +10,12 @@ public class DialoguePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Button continueButton;
 
+    [Header("Narrador")]
+    [Tooltip("Etiqueta del nombre: se oculta cuando habla el narrador.")]
+    [SerializeField] private GameObject nameLabel;
+    [Tooltip("Como figura en la columna characterName del CSV.")]
+    [SerializeField] private string narratorName = "CAJA DE TEXTO";
+
     [Header("Configuración")]
     [Tooltip("ID del primer nodo al iniciar la escena.")]
     [SerializeField] private string startNodeId = "1";
@@ -30,6 +36,10 @@ public class DialoguePanel : MonoBehaviour
     {
         if (characterNameText != null)
             characterNameText.text = node.characterName;
+
+        // El narrador (intro y outros) no lleva etiqueta de nombre
+        if (nameLabel != null)
+            nameLabel.SetActive(node.characterName != narratorName);
         dialogueText.text = node.text;
 
         // hide 'continue' button if dialogue expects a card

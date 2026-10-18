@@ -1885,6 +1885,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6779d44fbec56f145b7e17d662a5e749, type: 3}
   - characterName: La Jabru
     sprite: {fileID: 21300000, guid: 6779d44fbec56f145b7e17d662a5e749, type: 3}
+  - characterName: CAJA DE TEXTO
+    sprite: {fileID: 0}
 --- !u!1 &1540566923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,7 +1931,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da5a8189780d354c9536cb5235eaf7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  csvFile: {fileID: 4900000, guid: 924f734bf999d784b9190dad96081db2, type: 3}
+  csvFile: {fileID: 4900000, guid: 34643fa58ce714a4da956ded2734ac83, type: 3}
+  presentOutroId: outroPresent1
+  absentOutroId: outroAbsent1
 --- !u!212 &1623427823 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: -3825444677116269133, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
@@ -2953,7 +2957,9 @@ MonoBehaviour:
   characterNameText: {fileID: 1256289207}
   dialogueText: {fileID: 2056566623}
   continueButton: {fileID: 466423654}
-  startNodeId: 1
+  nameLabel: {fileID: 645114560}
+  narratorName: CAJA DE TEXTO
+  startNodeId: intro1
 --- !u!114 &2108677269
 MonoBehaviour:
   m_ObjectHideFlags: 0
