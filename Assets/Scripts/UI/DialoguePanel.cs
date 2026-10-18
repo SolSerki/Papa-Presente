@@ -18,9 +18,9 @@ public class DialoguePanel : MonoBehaviour
 
     [Header("Configuración")]
     [Tooltip("ID del primer nodo al iniciar la escena.")]
-    [SerializeField] private string startNodeId = "1";
+    [SerializeField] private string startNodeId = "1"; 
 
-    private void Start()
+    private void Start() 
     {
         // Suscribirse a los eventos del Manager
         dialogueManager.OnDialogueShow += OnDialogueShow;
@@ -49,7 +49,6 @@ public class DialoguePanel : MonoBehaviour
 
     private void OnDialogueEnd()
     {
-        
         gameObject.SetActive(false);
         // Se usa Instance porque sobrevive el GameManager de la primera escena cargada
         GameManager.Instance.FinishRun(dialogueManager.IsPresentEnding);

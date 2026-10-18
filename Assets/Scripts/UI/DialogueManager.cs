@@ -268,6 +268,8 @@ public class DialogueManager : MonoBehaviour
 
         string nextId = present ? _current.presentId : _current.absentId;
 
+        RelationshipManager.Instance.ApplyInteractionImpact(present, 0);
+
         if (string.IsNullOrEmpty(nextId))
         {
             FinishConversation();
