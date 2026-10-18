@@ -28,7 +28,8 @@ public class DialoguePanel : MonoBehaviour
     }
     private void OnDialogueShow(DialogueNode node)
     {
-        //characterNameText.text = node.characterName;
+        if (characterNameText != null)
+            characterNameText.text = node.characterName;
         dialogueText.text = node.text;
 
         // hide 'continue' button if dialogue expects a card
