@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Ignorar
   description: Ignorar el problema
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: e82bb08a56830b14da0889ad9ecea1d8, type: 3}
   polarity: 1

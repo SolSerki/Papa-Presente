@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Dinero
   description: Resolver con dinero
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: d7f3543a1bd6a354ea5f8487beb29360, type: 3}
   polarity: 2

@@ -21,6 +21,7 @@ public static GameManager Instance { get; private set; }
     public static string MAIN_MENU_SCENE = "MainMenu";
     public static string RUN_END_SCENE = "RunEnd";
     public static string CREDITS_SCENE = "Credits";
+    public static string SETTINGS_SCENE = "Settings";
 
     void Start()
     {
@@ -95,7 +96,31 @@ public static GameManager Instance { get; private set; }
 
     public void ChangeScene(string name)
     {
+        Time.timeScale = 1f; // por si se cambia de escena con Settings abierto
         SceneManager.LoadScene(name);
+    }
+
+    /// <summary>
+    /// Settings se carga encima de la escena actual y pausa el juego, así no se pierde la partida.
+    /// </summary>
+    public void OpenSettings()
+    {
+        if (SceneManager.GetSceneByName(SETTINGS_SCENE).isLoaded)
+            return;
+
+        Time.timeScale = 0f;
+        SceneManager.LoadScene(SETTINGS_SCENE, LoadSceneMode.Additive);
+    }
+
+    public void CloseSettings()
+    {
+        Scene settings = SceneManager.GetSceneByName(SETTINGS_SCENE);
+        if (!settings.isLoaded)
+            return;
+
+        PlayerPrefs.Save();
+        Time.timeScale = 1f;
+        SceneManager.UnloadSceneAsync(settings);
     }
 
     public void ReloadCurrentScene()

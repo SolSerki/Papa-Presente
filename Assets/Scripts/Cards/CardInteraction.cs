@@ -14,7 +14,10 @@ public class CardInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         isHovered = true;
         if (!isDragging)
+        {
             view.SetState(CardState.Hover);
+            AudioManager.PlayCardHover();
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -28,6 +31,7 @@ public class CardInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnPointerDown(PointerEventData eventData)
     {
         view.SetState(CardState.Pressed);
+        AudioManager.PlayCardSelect();
     }
 
     public void OnPointerUp(PointerEventData eventData)

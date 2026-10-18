@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Seguridad
   description: Aportar seguridad
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: fd26a56f1e0f1614099202853500288f, type: 3}
   polarity: 0

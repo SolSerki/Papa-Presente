@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Cumplir
   description: Hacer exactamente lo que te piden
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 344b9765ce3c67544a57af9972a157ee, type: 3}
   polarity: 0

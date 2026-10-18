@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: "Di\xE1logo"
   description: "Estar abierto al di\xE1logo"
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 36a6438a9d8f83b4e8d46df7cedd8630, type: 3}
   polarity: 0

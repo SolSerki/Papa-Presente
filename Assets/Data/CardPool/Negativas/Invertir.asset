@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Invertir
   description: "Darle vuelta la tortilla/invertir la situaci\xF3n"
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 1fcc614ea62e60647843d05d33e8bb39, type: 3}
   polarity: 1

@@ -48,6 +48,7 @@ public class PlayerHand : MonoBehaviour
         view.Setup(data);
         cards.Insert(0, view);
         ArrangeCards();
+        AudioManager.PlayCardDraw();
         return true;
     }
 
@@ -80,6 +81,7 @@ public class PlayerHand : MonoBehaviour
             return;
 
         discardPile.Add(card.Data);
+        AudioManager.PlayCardDiscard();
         Destroy(card.gameObject);
         ArrangeCards();
         DrawCard();

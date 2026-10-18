@@ -28,4 +28,14 @@ public class UIActionsManager : MonoBehaviour
     {
         GameManager.Instance.Exit();
     }
+
+    public void OpenSettings()
+    {
+        GameManager.Instance.OpenSettings();
+    }
+
+    public void CloseSettings()
+    {
+        GameManager.Instance.CloseSettings();
+    }
 }
