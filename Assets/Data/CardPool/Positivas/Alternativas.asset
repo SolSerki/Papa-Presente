@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Alternativas
   description: Pensar alternativas en conjunto
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 4a9f150faa689ce4a96f8b690ae5cba9, type: 3}
   polarity: 0

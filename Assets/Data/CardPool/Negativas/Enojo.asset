@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Enojo
   description: Resolver desde el enojo
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 540dcf1481aab96478fe97970012f7b0, type: 3}
   polarity: 1

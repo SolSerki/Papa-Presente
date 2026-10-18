@@ -14,12 +14,6 @@ public class UIActionsManager : MonoBehaviour
 
     }
 
-    public void FinishRun()
-    {
-        GameManager.Instance.FinishRun();
-
-    }
-
     public void StartNewGame()
     {
         GameManager.Instance.StartNewGame();
@@ -33,5 +27,15 @@ public class UIActionsManager : MonoBehaviour
     public void Exit()
     {
         GameManager.Instance.Exit();
+    }
+
+    public void OpenSettings()
+    {
+        GameManager.Instance.OpenSettings();
+    }
+
+    public void CloseSettings()
+    {
+        GameManager.Instance.CloseSettings();
     }
 }

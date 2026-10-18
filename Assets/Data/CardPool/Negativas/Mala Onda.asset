@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Mala Onda
   description: Hacerlo de mala onda
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 42fb152135fe16947adc41b5668574cf, type: 3}
   polarity: 1

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: "Perd\xF3n"
   description: "Pedir perd\xF3n"
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 0c42026407d0d0b46ae3782f505c4d91, type: 3}
   polarity: 0

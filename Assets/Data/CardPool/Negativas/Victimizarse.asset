@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Victimizarse
   description: 'Victimizarse '
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 201eeb51799b1494f9c7129e6d189c6f, type: 3}
   polarity: 1

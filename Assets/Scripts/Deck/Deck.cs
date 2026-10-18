@@ -35,6 +35,11 @@ public class Deck : MonoBehaviour
         {
             BuildRandomDeck();
         }
+
+        // Cartas ganadas al final de runs anteriores
+        if (GameManager.Instance != null)
+            drawPile.AddRange(GameManager.Instance.WonCards);
+
         Shuffle();
     }
 

@@ -17,9 +17,17 @@ public class PlayerHand : MonoBehaviour
 
     [Header("Descarte")]
     [SerializeField] private DiscardPile discardPile;
+
+    [Header("Estrategia")]
+    [Tooltip("Cartel 'Seleccioná una carta para descartar'.")]
+    [SerializeField] private GameObject discardPrompt;
+
     private readonly List<CardView> cards = new List<CardView>();
 
     public int Count => cards.Count;
+
+    // Mientras es true, hacer click en una carta de la mano la descarta (no se puede jugar)
+    public bool IsSelectingDiscard { get; private set; }
 
     private void Start()
     {
@@ -48,6 +56,7 @@ public class PlayerHand : MonoBehaviour
         view.Setup(data);
         cards.Insert(0, view);
         ArrangeCards();
+        AudioManager.PlayCardDraw();
         return true;
     }
 
@@ -79,10 +88,74 @@ public class PlayerHand : MonoBehaviour
         if (!cards.Remove(card))
             return;
 
-        discardPile.Add(card.Data);
-        Destroy(card.gameObject);
+        Discard(card);
+        AudioManager.PlayCardDiscard();
         ArrangeCards();
         DrawCard();
+    }
+
+    // Las estrategias no responden al diálogo: hacen su efecto en el momento
+    public void PlayStrategy(CardView card)
+    {
+        if (IsSelectingDiscard || !cards.Remove(card))
+            return;
+
+        StrategyEffect effect = card.Data.StrategyEffect;
+        Discard(card);
+        AudioManager.PlayCardDiscard();
+
+        switch (effect)
+        {
+            case StrategyEffect.DiscardHandAndDraw:
+                foreach (CardView other in cards)
+                    Discard(other);
+                cards.Clear();
+                DrawCards(maxHandSize);
+                break;
+
+            case StrategyEffect.ChooseDiscardAndDraw:
+                // Se roba después de elegir: la que reemplaza a la estrategia y la descartada
+                if (cards.Count == 0)
+                    DrawCards(maxHandSize);
+                else
+                    StartDiscardSelection();
+                break;
+
+            default:
+                ArrangeCards();
+                DrawCard();
+                break;
+        }
+    }
+
+    private void StartDiscardSelection()
+    {
+        IsSelectingDiscard = true;
+        ArrangeCards();
+        if (discardPrompt != null)
+            discardPrompt.SetActive(true);
+    }
+
+    // Lo llama CardInteraction al hacer click en una carta mientras se elige el descarte
+    public void SelectForDiscard(CardView card)
+    {
+        if (!IsSelectingDiscard || !cards.Remove(card))
+            return;
+
+        IsSelectingDiscard = false;
+        if (discardPrompt != null)
+            discardPrompt.SetActive(false);
+
+        Discard(card);
+        AudioManager.PlayCardDiscard();
+        ArrangeCards();
+        DrawCards(maxHandSize);
+    }
+
+    private void Discard(CardView card)
+    {
+        discardPile.Add(card.Data);
+        Destroy(card.gameObject);
     }
 
     private void OnValidate()

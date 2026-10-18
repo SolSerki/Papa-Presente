@@ -5,17 +5,22 @@ using UnityEngine.UI;
 public class DialoguePanel : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private TextMeshProUGUI characterNameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Button continueButton;
 
+    [Header("Narrador")]
+    [Tooltip("Etiqueta del nombre: se oculta cuando habla el narrador.")]
+    [SerializeField] private GameObject nameLabel;
+    [Tooltip("Como figura en la columna characterName del CSV.")]
+    [SerializeField] private string narratorName = "CAJA DE TEXTO";
+
     [Header("Configuración")]
     [Tooltip("ID del primer nodo al iniciar la escena.")]
-    [SerializeField] private string startNodeId = "1";
+    [SerializeField] private string startNodeId = "1"; 
 
-    private void Start()
+    private void Start() 
     {
         // Suscribirse a los eventos del Manager
         dialogueManager.OnDialogueShow += OnDialogueShow;
@@ -29,7 +34,12 @@ public class DialoguePanel : MonoBehaviour
     }
     private void OnDialogueShow(DialogueNode node)
     {
-        //characterNameText.text = node.characterName;
+        if (characterNameText != null)
+            characterNameText.text = node.characterName;
+
+        // El narrador (intro y outros) no lleva etiqueta de nombre
+        if (nameLabel != null)
+            nameLabel.SetActive(node.characterName != narratorName);
         dialogueText.text = node.text;
 
         // hide 'continue' button if dialogue expects a card
@@ -40,7 +50,13 @@ public class DialoguePanel : MonoBehaviour
     private void OnDialogueEnd()
     {
         
+<<<<<<< HEAD
         gameManager.FinishRun();
+=======
+        gameObject.SetActive(false);
+        // Se usa Instance porque sobrevive el GameManager de la primera escena cargada
+        GameManager.Instance.FinishRun(dialogueManager.IsPresentEnding);
+>>>>>>> refs/remotes/origin/main
     }
 
     private void OnDestroy()

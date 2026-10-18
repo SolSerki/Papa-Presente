@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Unity.Tutorials.Editor;
 using UnityEngine;
 
 /// <summary>
@@ -21,6 +20,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextAsset csvFile;
     private string DEFAULT_INDEX = "1";
 
+    [Header("Outros")]
+    [Tooltip("Nodo con el que arranca el outro de cada final. Vacío o inexistente = se pasa directo a RunEnd.")]
+    [SerializeField] private string presentOutroId = "outroPresent1";
+    [SerializeField] private string absentOutroId = "outroAbsent1";
+    private bool outroStarted;
+
  
     /// <summary>Invoked to trigger a dialogue node.</summary>
     public event Action<DialogueNode> OnDialogueShow;
@@ -33,6 +38,11 @@ public class DialogueManager : MonoBehaviour
     private DialogueNode _current;
 
     public bool CanReceiveCard => _current != null && _current.IsQuestion && !NodeType.NI.Equals(_current.type);
+
+    // Resultado de la run: cuántas respuestas fueron de papá presente y cuántas de ausente
+    public int PresentCount { get; private set; }
+    public int AbsentCount { get; private set; }
+    public bool IsPresentEnding => PresentCount > AbsentCount;
 
     private void Awake()
     {
@@ -73,7 +83,7 @@ public class DialogueManager : MonoBehaviour
                 continue;
             }
             String nodeType = fields[1].Trim();
-            if (nodeType.IsNotNullOrEmpty() && !Enum.TryParse<NodeType>(nodeType, false, out var type)
+            if (!string.IsNullOrEmpty(nodeType) &&!Enum.TryParse<NodeType>(nodeType, false, out var type)
              || !Enum.IsDefined(typeof(NodeType), nodeType))
             {
                 Debug.LogWarning("Invalid NodeType");
@@ -207,12 +217,29 @@ public class DialogueManager : MonoBehaviour
 
         if (_current.IsEnd)
         {
-            EndDialogue();
+            FinishConversation();
         }
         else
         {
             StartDialogue(_current.nextNodeId);
         }
+    }
+
+    /// <summary>
+    /// Al terminar el diálogo principal se muestra el outro del final que corresponda.
+    /// Cuando termina el outro, termina la run.
+    /// </summary>
+    private void FinishConversation()
+    {
+        string outroId = IsPresentEnding ? presentOutroId : absentOutroId;
+        if (!outroStarted && !string.IsNullOrEmpty(outroId) && _nodes.ContainsKey(outroId))
+        {
+            outroStarted = true;
+            StartDialogue(outroId);
+            return;
+        }
+
+        EndDialogue();
     }
 
     /// <summary>
@@ -233,14 +260,19 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        bool isDaddyPresent = isPresentResult(polarity, _current.type);
-        string nextId = isDaddyPresent ? _current.presentId : _current.absentId;
+        bool present = isPresentResult(polarity, _current.type);
+        if (present)
+            PresentCount++;
+        else
+            AbsentCount++;
 
-        RelationshipManager.Instance.ApplyInteractionImpact(isDaddyPresent, 0);
+        string nextId = present ? _current.presentId : _current.absentId;
+
+        RelationshipManager.Instance.ApplyInteractionImpact(present, 0);
 
         if (string.IsNullOrEmpty(nextId))
         {
-            EndDialogue();
+            FinishConversation();
         }
         else
         {

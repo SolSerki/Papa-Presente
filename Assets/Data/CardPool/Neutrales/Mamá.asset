@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: "Mam\xE1"
   description: "Llamar a mam\xE1"
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: abba430bdf990ed4fb38adc8c7fede63, type: 3}
   polarity: 2

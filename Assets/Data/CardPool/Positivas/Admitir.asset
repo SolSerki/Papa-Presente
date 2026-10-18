@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Admitir
   description: "Admitir que se equivoc\xF3"
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 9e3a9703ba04821409e1ff4c61234454, type: 3}
   polarity: 0
