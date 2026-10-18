@@ -174,6 +174,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("[DialogueManager] End of conversation.");
         _current = null;
         OnDialogueEnd?.Invoke();
+        
     }
     private void ShowNode(DialogueNode node)
     {
@@ -270,9 +271,9 @@ public class DialogueManager : MonoBehaviour
         switch (nodeType)
         {
             case NodeType.A:
-                return true;
-            case NodeType.B:
                 return false;
+            case NodeType.B:
+                return true;
             default:
                 Debug.LogWarning("[DialogueManager] No valid Node/Challenge type.");
                 return false;
