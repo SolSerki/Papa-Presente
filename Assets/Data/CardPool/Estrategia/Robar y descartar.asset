@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Robar y descartar
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   cardName: Robar y descartar
-  description: "Rob\xE1 una carta y descart\xE1 otra"
+  description: "Eleg\xED una carta de tu mano para descartar y rob\xE1 otra"
   artwork: {fileID: 21300000, guid: f92cc49e9e7723741aa57789d7f17ce7, type: 3}
   polarity: 3
+  strategyEffect: 2

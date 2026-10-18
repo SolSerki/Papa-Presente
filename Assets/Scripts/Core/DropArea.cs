@@ -13,12 +13,18 @@ public class DropArea : MonoBehaviour
         PointerEventData pointerData = data as PointerEventData;
         if (pointerData == null) return;
 
+        // Mientras una estrategia pide elegir una carta para descartar, no se juega nada
+        if (hand.IsSelectingDiscard)
+        {
+            Debug.Log("[DropArea] Primero hay que elegir una carta para descartar.");
+            return;
+        }
+
         // Las estrategias no responden al diálogo, se juegan en cualquier momento.
         CardView droppedCard = pointerData.pointerDrag.GetComponent<CardView>();
         if (droppedCard != null && droppedCard.Data != null && droppedCard.Data.Polarity == CardPolarity.Strategy)
         {
-            Debug.Log("[DropArea] Estrategia jugada: " + droppedCard.Data.CardName + " (efecto pendiente)");
-            hand.PlayCard(droppedCard);
+            hand.PlayStrategy(droppedCard);
             return;
         }
 

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b56cdccc813a8a4bb6afb40d469658e, type: 3}
   m_Name: Descartar y robar
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  cardName: Descartar y robar
+  cardName: Pensar bien
   description: "Descart\xE1 tu mano y rob\xE1 una nueva"
   artwork: {fileID: 21300000, guid: d4519ce95fb1a5645b269512818cce32, type: 3}
   polarity: 3
+  strategyEffect: 1
