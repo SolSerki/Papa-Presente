@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: Minimizar
   description: "Minimizar la situaci\xF3n"
-  artwork: {fileID: 1806066430021436774, guid: 0b9652e2ea9b61d43adad323800b65fa, type: 3}
+  artwork: {fileID: 0}
   polarity: 1

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 65232841e9b5ba541bfe2ba5e5c060c1
+guid: d393d56387329ae4ab9e55b1eea93658
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9151839042453897413
-    second: Artboard 49_0
+      213: -9089860487595128337
+    second: Artboard 39_0
+  - first:
+      213: -8966325902298195374
+    second: Artboard 39_1
+  - first:
+      213: -5059448867035077349
+    second: Artboard 39_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -102,13 +108,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Artboard 49_0
+      name: Artboard 39_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 42
-        width: 294
-        height: 352
+        x: 6
+        y: 384
+        width: 27
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +123,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c0040fde1dd10f70800000000000000
-      internalID: 9151839042453897413
+      spriteID: fe98803fb045ad180800000000000000
+      internalID: -9089860487595128337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Artboard 39_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 408
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ad125f816319380800000000000000
+      internalID: -8966325902298195374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Artboard 39_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 9
+        width: 353
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b152f11cf0a39c9b0800000000000000
+      internalID: -5059448867035077349
       vertices: []
       indices: 
       edges: []
@@ -127,7 +177,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -137,7 +187,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Artboard 49_0: 9151839042453897413
+      Artboard 39_0: -9089860487595128337
+      Artboard 39_1: -8966325902298195374
+      Artboard 39_2: -5059448867035077349
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

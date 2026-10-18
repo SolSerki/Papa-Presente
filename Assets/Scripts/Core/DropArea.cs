@@ -13,6 +13,15 @@ public class DropArea : MonoBehaviour
         PointerEventData pointerData = data as PointerEventData;
         if (pointerData == null) return;
 
+        // Las estrategias no responden al diálogo, se juegan en cualquier momento.
+        CardView droppedCard = pointerData.pointerDrag.GetComponent<CardView>();
+        if (droppedCard != null && droppedCard.Data != null && droppedCard.Data.Polarity == CardPolarity.Strategy)
+        {
+            Debug.Log("[DropArea] Estrategia jugada: " + droppedCard.Data.CardName + " (efecto pendiente)");
+            hand.PlayCard(droppedCard);
+            return;
+        }
+
         if (!dialogueManager.CanReceiveCard)
         {
         Debug.Log("[DropArea] El diálogo no espera una carta ahora.");

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8211033540601244006}
   - component: {fileID: 8253378818527633014}
   - component: {fileID: -1612301397375395155}
+  - component: {fileID: 2811896658092492220}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -88,15 +89,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e35fee69eb736244a99fd68897dd929b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.84, y: 4.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &7579669949269002967
@@ -111,10 +112,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164bf6c5395b89a48b5540a961fade77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardView
+  frame: {fileID: 6754996597240133052}
   artwork: {fileID: 1642085425664791826}
   nameText: {fileID: 4199526682268792658}
   descriptionText: {fileID: 7350721160758283452}
   initialData: {fileID: 0}
+  positiveFrames: {fileID: 11400000, guid: 24e1f13c0f35bbf48814fa1a382a8773, type: 2}
+  negativeFrames: {fileID: 11400000, guid: ee9169064aab96049939a9d6c291bc14, type: 2}
+  neutralFrames: {fileID: 11400000, guid: faf5ff085243f524691d614e93efb01d, type: 2}
+  strategyFrames: {fileID: 11400000, guid: 298ebf0b02468e5438e8641e5be1004c, type: 2}
 --- !u!61 &8211033540601244006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,10 +158,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.84, y: 4.56}
+    newSize: {x: 3.84, y: 4.56}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -189,6 +195,19 @@ MonoBehaviour:
   cardCollider: {fileID: 8211033540601244006}
   sortingGroup: {fileID: 8253378818527633014}
   dragSortingOrder: 100
+--- !u!114 &2811896658092492220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3033244960318645594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116aaf848600bc4488c83fbcfd5324c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardInteraction
+  view: {fileID: 7579669949269002967}
 --- !u!1 &4982765173126854449
 GameObject:
   m_ObjectHideFlags: 0

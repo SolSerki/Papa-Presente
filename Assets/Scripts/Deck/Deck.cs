@@ -10,11 +10,13 @@ public class Deck : MonoBehaviour
 [SerializeField] private List<CardData> positivePool;
 [SerializeField] private List<CardData> negativePool;
 [SerializeField] private List<CardData> neutralPool;
+[SerializeField] private List<CardData> strategyPool;
 
 [Header("Cantidad de cartas al azar")]
 [SerializeField] private int positiveCount = 5;
 [SerializeField] private int negativeCount = 5;
 [SerializeField] private int neutralCount = 2;
+[SerializeField] private int strategyCount = 0;
 
 [Header("Descarte")]
 [SerializeField] private DiscardPile discardPile;
@@ -41,6 +43,7 @@ public class Deck : MonoBehaviour
         AddRandomCards(positivePool, positiveCount);
         AddRandomCards(negativePool, negativeCount);
         AddRandomCards(neutralPool, neutralCount);
+        AddRandomCards(strategyPool, strategyCount);
     }
 
 private void AddRandomCards(List<CardData> pool, int amount)

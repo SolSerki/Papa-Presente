@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40448989a4d9c14cafecbfa9d2b76c8, type: 3}
+  m_Name: Neutra
+  m_EditorClassIdentifier: Assembly-CSharp::CardFrames
+  idle: {fileID: 21300000, guid: e35fee69eb736244a99fd68897dd929b, type: 3}
+  hover: {fileID: 21300000, guid: 65232841e9b5ba541bfe2ba5e5c060c1, type: 3}
+  pressed: {fileID: 21300000, guid: 37ac7fc222f5c144799c5d27a9bb33c0, type: 3}

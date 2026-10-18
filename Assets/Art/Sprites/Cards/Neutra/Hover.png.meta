@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 37ac7fc222f5c144799c5d27a9bb33c0
+guid: 65232841e9b5ba541bfe2ba5e5c060c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6215499469549202442
-    second: Artboard 41_0
-  - first:
-      213: 8850122258954875923
-    second: Artboard 41_1
-  - first:
-      213: -3717146262590311871
-    second: Artboard 41_2
+      213: 9151839042453897413
+    second: Artboard 49_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Artboard 41_0
+      name: Artboard 49_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 384
-        width: 27
-        height: 26
+        x: 53
+        y: 42
+        width: 294
+        height: 352
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,52 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0ceb1026d3e14650800000000000000
-      internalID: 6215499469549202442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Artboard 41_1
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 408
-        width: 27
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 31478c7fd43f1da70800000000000000
-      internalID: 8850122258954875923
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Artboard 41_2
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 9
-        width: 353
-        height: 413
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14232202b2b0a6cc0800000000000000
-      internalID: -3717146262590311871
+      spriteID: 5c0040fde1dd10f70800000000000000
+      internalID: 9151839042453897413
       vertices: []
       indices: 
       edges: []
@@ -177,7 +127,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -187,9 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Artboard 41_0: 6215499469549202442
-      Artboard 41_1: 8850122258954875923
-      Artboard 41_2: -3717146262590311871
+      Artboard 49_0: 9151839042453897413
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
