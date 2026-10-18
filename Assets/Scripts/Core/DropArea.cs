@@ -14,10 +14,10 @@ public class DropArea : MonoBehaviour
 
         GameObject droppedObject = pointerData.pointerDrag;
 
-        CardData cardData = droppedObject.GetComponent<CardData>();
-        if (cardData != null)
+        CardView cardView = droppedObject.GetComponent<CardView>();
+        if (cardView != null && cardView.Data != null)
         {
-            dialogueManager.TriggerResponse(cardData.Polarity);
+            dialogueManager.TriggerResponse(cardView.Data.Polarity);
             Debug.Log("dropped: " + droppedObject.name);
         }
         else

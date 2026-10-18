@@ -230,9 +230,6 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-
-        
-
         string nextId = isPresentResult(polarity, _current.type) ? _current.presentId : _current.absentId;
 
         if (string.IsNullOrEmpty(nextId))

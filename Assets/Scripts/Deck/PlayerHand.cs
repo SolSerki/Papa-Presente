@@ -54,6 +54,13 @@ public class PlayerHand : MonoBehaviour
             cards[i].transform.localPosition = new Vector3(startX + i * spacing, 0f, 0f);
     }
 
+    private void PlayCard(CardView card)
+    {
+        cards.Remove(card);
+        Destroy(card.gameObject);
+        ArrangeCards();
+    }
+
     private void OnValidate()
     {
         if (Application.isPlaying)
