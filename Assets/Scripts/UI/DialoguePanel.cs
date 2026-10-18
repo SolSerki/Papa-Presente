@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class DialoguePanel : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private TextMeshProUGUI characterNameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -41,7 +40,8 @@ public class DialoguePanel : MonoBehaviour
     {
         
         gameObject.SetActive(false);
-        gameManager.FinishRun();
+        // Se usa Instance porque sobrevive el GameManager de la primera escena cargada
+        GameManager.Instance.FinishRun(dialogueManager.IsPresentEnding);
     }
 
     private void OnDestroy()

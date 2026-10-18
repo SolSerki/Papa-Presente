@@ -1,9 +1,21 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 public static GameManager Instance { get; private set; }
+
+    [Header("Recompensas al final de la run")]
+    [SerializeField] private List<CardData> positiveRewards;
+    [SerializeField] private List<CardData> strategyRewards;
+
+    // Cartas ganadas en runs anteriores, se suman al mazo en cada run nueva
+    private readonly List<CardData> wonCards = new List<CardData>();
+
+    public IReadOnlyList<CardData> WonCards => wonCards;
+    public bool LastRunPresent { get; private set; }
+    public CardData LastReward { get; private set; }
 
     public static string SCENE_1 = "Scene1";
     public static string MAIN_MENU_SCENE = "MainMenu";
@@ -34,38 +46,51 @@ public static GameManager Instance { get; private set; }
 
     public void EndGame()
     {
-        Debug.Log("//flush data from playerDeck");
+        ResetProgress();
         ChangeScene(MAIN_MENU_SCENE);
 
     }
 
-    public void FinishRun()
+    /// <summary>
+    /// Papá presente gana una carta positiva, papá ausente una de estrategia.
+    /// </summary>
+    public void FinishRun(bool present)
     {
-        Debug.Log("//switch to RunEnd scene");
+        LastRunPresent = present;
+        LastReward = PickRandom(present ? positiveRewards : strategyRewards);
+
+        if (LastReward != null)
+            wonCards.Add(LastReward);
+        else
+            Debug.LogWarning("[GameManager] No hay cartas de recompensa cargadas para este final.");
+
         ChangeScene(RUN_END_SCENE);
-        Debug.Log(" //win a card");
-        Debug.Log("//show continue and end game buttons");
-        
-       
-        
     }
 
     public void ContinueGameLoop()
     {
-        
-        
-        Debug.Log("//add card to playerHand and save data");
-
-        Debug.Log("//call Scene1");
+        // La carta ganada ya está en wonCards, el mazo la suma al armarse
         ChangeScene(SCENE_1);
     }
 
     public void StartNewGame()
     {
-        Debug.Log("//load any data and flush any data");
-
-        Debug.Log("//call Scene1");
+        ResetProgress();
         ChangeScene(SCENE_1);
+    }
+
+    private void ResetProgress()
+    {
+        wonCards.Clear();
+        LastReward = null;
+    }
+
+    private CardData PickRandom(List<CardData> pool)
+    {
+        if (pool == null || pool.Count == 0)
+            return null;
+
+        return pool[Random.Range(0, pool.Count)];
     }
 
     public void ChangeScene(string name)

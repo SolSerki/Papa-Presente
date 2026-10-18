@@ -14,12 +14,6 @@ public class UIActionsManager : MonoBehaviour
 
     }
 
-    public void FinishRun()
-    {
-        GameManager.Instance.FinishRun();
-
-    }
-
     public void StartNewGame()
     {
         GameManager.Instance.StartNewGame();

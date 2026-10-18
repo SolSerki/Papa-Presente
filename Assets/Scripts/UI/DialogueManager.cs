@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Unity.Tutorials.Editor;
 using UnityEngine;
 
 /// <summary>
@@ -33,6 +32,11 @@ public class DialogueManager : MonoBehaviour
     private DialogueNode _current;
 
     public bool CanReceiveCard => _current != null && _current.IsQuestion && !NodeType.NI.Equals(_current.type);
+
+    // Resultado de la run: cuántas respuestas fueron de papá presente y cuántas de ausente
+    public int PresentCount { get; private set; }
+    public int AbsentCount { get; private set; }
+    public bool IsPresentEnding => PresentCount > AbsentCount;
 
     private void Awake()
     {
@@ -73,7 +77,7 @@ public class DialogueManager : MonoBehaviour
                 continue;
             }
             String nodeType = fields[1].Trim();
-            if (nodeType.IsNotNullOrEmpty() && !Enum.TryParse<NodeType>(nodeType, false, out var type)
+            if (!string.IsNullOrEmpty(nodeType) &&!Enum.TryParse<NodeType>(nodeType, false, out var type)
              || !Enum.IsDefined(typeof(NodeType), nodeType))
             {
                 Debug.LogWarning("Invalid NodeType");
@@ -233,7 +237,13 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        string nextId = isPresentResult(polarity, _current.type) ? _current.presentId : _current.absentId;
+        bool present = isPresentResult(polarity, _current.type);
+        if (present)
+            PresentCount++;
+        else
+            AbsentCount++;
+
+        string nextId = present ? _current.presentId : _current.absentId;
 
         if (string.IsNullOrEmpty(nextId))
         {

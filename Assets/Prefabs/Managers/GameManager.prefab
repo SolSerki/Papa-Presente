@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4319997545214301167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 708972111258575565}
+  - component: {fileID: 6438748294145713690}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &708972111258575565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319997545214301167}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6438748294145713690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319997545214301167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c83231ca3de774b8fcc3c722ab0aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  positiveRewards:
+  - {fileID: 11400000, guid: c1d61dbb2b89e38cc65aa6dcfb2f734e, type: 2}
+  - {fileID: 11400000, guid: 7cd170f4b0a4a2857e1c2d9c89f04854, type: 2}
+  - {fileID: 11400000, guid: b7f5ee477c5e97005ffa8e4f1985d812, type: 2}
+  - {fileID: 11400000, guid: c1d09be87b13750d4192c37bf16151f3, type: 2}
+  - {fileID: 11400000, guid: afe80a3e39fa06543dce04f37dd59a79, type: 2}
+  - {fileID: 11400000, guid: d572cee09ed78516f51d9f0f9fd4a38d, type: 2}
+  - {fileID: 11400000, guid: 5f1e6e855c0132b1c2dd6a5c64e9e801, type: 2}
+  - {fileID: 11400000, guid: efe64b79b5328c84b2734de803cdfe74, type: 2}
+  - {fileID: 11400000, guid: 26706bf487c9ec7c22d9f5decc64f4e6, type: 2}
+  - {fileID: 11400000, guid: 1fc634952f7794ab941b640579841872, type: 2}
+  - {fileID: 11400000, guid: 17661fe141c94389de28f06496e36d31, type: 2}
+  strategyRewards:
+  - {fileID: 11400000, guid: 08372aafc38d2d44fad9882b5a60e594, type: 2}
+  - {fileID: 11400000, guid: a8adbec8b8d62fd4b841b5339ef71e10, type: 2}
