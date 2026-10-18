@@ -11,9 +11,14 @@ public class Deck : MonoBehaviour
 [SerializeField] private List<CardData> negativePool;
 [SerializeField] private List<CardData> neutralPool;
 
+[Header("Cantidad de cartas al azar")]
 [SerializeField] private int positiveCount = 5;
 [SerializeField] private int negativeCount = 5;
 [SerializeField] private int neutralCount = 2;
+
+[Header("Descarte")]
+[SerializeField] private DiscardPile discardPile;
+
     private List<CardData> drawPile = new List<CardData>();
 
     public int Count => drawPile.Count;
@@ -56,13 +61,21 @@ private void AddRandomCards(List<CardData> pool, int amount)
         }
     }
 
-    public CardData Draw()
-    {
-        if (drawPile.Count == 0)
-            return null;
+   public CardData Draw()
+{
+    if (drawPile.Count == 0)
+        return null;
 
-        CardData top = drawPile[drawPile.Count - 1];
-        drawPile.RemoveAt(drawPile.Count - 1);
-        return top;
-    }
+    CardData top = drawPile[drawPile.Count - 1];
+    drawPile.RemoveAt(drawPile.Count - 1);
+        if (drawPile.Count == 0)
+        RefillFromDiscard();
+    return top;
+}
+
+private void RefillFromDiscard()
+{
+    drawPile.AddRange(discardPile.Reshuffle());
+    Shuffle();
+}
 }

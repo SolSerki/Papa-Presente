@@ -13,6 +13,8 @@ public class PlayerHand : MonoBehaviour
     [Header("Layout")]
     [SerializeField] private float spacing = 2.8f;
 
+    [Header("Descarte")]
+    [SerializeField] private DiscardPile discardPile;
     private readonly List<CardView> cards = new List<CardView>();
 
     public int Count => cards.Count;
@@ -42,7 +44,7 @@ public class PlayerHand : MonoBehaviour
 
         CardView view = Instantiate(cardPrefab, transform);
         view.Setup(data);
-        cards.Add(view);
+        cards.Insert(0, view);
         ArrangeCards();
         return true;
     }
@@ -54,11 +56,15 @@ public class PlayerHand : MonoBehaviour
             cards[i].transform.localPosition = new Vector3(startX + i * spacing, 0f, 0f);
     }
 
-    private void PlayCard(CardView card)
+    public void PlayCard(CardView card)
     {
-        cards.Remove(card);
+        if (!cards.Remove(card))
+            return;
+
+        discardPile.Add(card.Data);
         Destroy(card.gameObject);
         ArrangeCards();
+        DrawCard();
     }
 
     private void OnValidate()

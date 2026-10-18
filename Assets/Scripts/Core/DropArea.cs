@@ -5,6 +5,8 @@ public class DropArea : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private DialogueManager dialogueManager;
+    [Header("Player Hand")]
+    [SerializeField] private PlayerHand hand;
     public void OnItemDropped(BaseEventData data)
     {
         // to access the dropped object
@@ -18,6 +20,7 @@ public class DropArea : MonoBehaviour
         if (cardView != null && cardView.Data != null)
         {
             dialogueManager.TriggerResponse(cardView.Data.Polarity);
+            hand.PlayCard(cardView);
             Debug.Log("dropped: " + droppedObject.name);
         }
         else
