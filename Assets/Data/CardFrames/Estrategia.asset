@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40448989a4d9c14cafecbfa9d2b76c8, type: 3}
   m_Name: Estrategia
   m_EditorClassIdentifier: Assembly-CSharp::CardFrames
-  idle: {fileID: 21300000, guid: d3662dcaadf64a94dbdb929ed61196b0, type: 3}
-  hover: {fileID: 21300000, guid: 6cb7e756b1ddcdc428351bf1991e492e, type: 3}
-  pressed: {fileID: 21300000, guid: d393d56387329ae4ab9e55b1eea93658, type: 3}
+  idle: {fileID: 21300000, guid: 1d183a436cfd1fa4681d09e7fbee6b54, type: 3}
+  hover: {fileID: 21300000, guid: 0d51523d5d4ca9a4bbb96c5c99f9417d, type: 3}
+  pressed: {fileID: 21300000, guid: e9b6a3c4b756fc34d936ca6771e4bc24, type: 3}

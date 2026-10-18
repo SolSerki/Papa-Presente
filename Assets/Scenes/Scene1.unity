@@ -129,11 +129,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 884494137148042788, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.29
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 884494137148042788, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.06
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 884494137148042788, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: startingCards.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2781288043534721813, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: da2c3b13f81d67541920ba938f91a076, type: 3}
     - target: {fileID: 3653290409525975292, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
       propertyPath: m_Name
       value: Deck
@@ -190,6 +194,34 @@ PrefabInstance:
     - target: {fileID: 5351188062226540360, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
       propertyPath: deckImage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351188062226540360, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
+      propertyPath: idleSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: da2c3b13f81d67541920ba938f91a076, type: 3}
+    - target: {fileID: 5351188062226540360, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
+      propertyPath: hoverSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a02ef1b6063d309419e6b7f1aaff81bd, type: 3}
+    - target: {fileID: 5351188062226540360, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 2042566175}
+    - target: {fileID: 7430186346993107897, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
+      propertyPath: m_Size.x
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430186346993107897, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
+      propertyPath: m_Size.y
+      value: 83
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430186346993107897, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430186346993107897, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 152
       objectReference: {fileID: 0}
     - target: {fileID: 8123178995952380601, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
       propertyPath: m_fontAsset
@@ -934,6 +966,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1034475248}
     m_Modifications:
+    - target: {fileID: -3825444677116269133, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 05727fdd06d29f8428d2410b8361c83a, type: 3}
+    - target: {fileID: 2071873016320122343, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: idleSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 05727fdd06d29f8428d2410b8361c83a, type: 3}
+    - target: {fileID: 2071873016320122343, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: hoverSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e40cd522f284364e9a2c172fa46c1b1, type: 3}
+    - target: {fileID: 2071873016320122343, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1623427823}
     - target: {fileID: 5247401606607023667, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -951,12 +999,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5734411707993264136, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734411707993264136, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734411707993264136, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5734411707993264136, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 1.18
       objectReference: {fileID: 0}
     - target: {fileID: 5734411707993264136, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -990,9 +1046,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5734411707993264136, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7549342506467046942, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
       propertyPath: m_Name
       value: Discard Pile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689869648421075442, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: m_Size.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689869648421075442, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: m_Size.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689869648421075442, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689869648421075442, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 152
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1216,6 +1292,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   csvFile: {fileID: 4900000, guid: 924f734bf999d784b9190dad96081db2, type: 3}
+--- !u!212 &1623427823 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: -3825444677116269133, guid: 33f33f3f113d04c42b036ea14976bd4a, type: 3}
+  m_PrefabInstance: {fileID: 876919230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1628552143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,7 +1474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8604585351233046274, guid: 0b54f86fb56ec2f45a57270a19b085fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -3.08
       objectReference: {fileID: 0}
     - target: {fileID: 8604585351233046274, guid: 0b54f86fb56ec2f45a57270a19b085fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1457,6 +1538,7 @@ MonoBehaviour:
   startingHandSize: 3
   maxHandSize: 3
   spacing: 5
+  curveRadius: 26
   discardPile: {fileID: 876919232}
 --- !u!1 &1874889031
 GameObject:
@@ -1722,6 +1804,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1e28bf73520de4c983789cffbe716e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deck
+--- !u!212 &2042566175 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2781288043534721813, guid: 2fbdb547d464d094ebbf8c4f9f1d2b06, type: 3}
+  m_PrefabInstance: {fileID: 53848537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2056566621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,8 +2003,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 7604867083129601808, guid: 4106a97a948a5d14b81be8c3a60714da, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

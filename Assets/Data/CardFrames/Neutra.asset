@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40448989a4d9c14cafecbfa9d2b76c8, type: 3}
   m_Name: Neutra
   m_EditorClassIdentifier: Assembly-CSharp::CardFrames
-  idle: {fileID: 21300000, guid: e35fee69eb736244a99fd68897dd929b, type: 3}
-  hover: {fileID: 21300000, guid: 65232841e9b5ba541bfe2ba5e5c060c1, type: 3}
-  pressed: {fileID: 21300000, guid: 37ac7fc222f5c144799c5d27a9bb33c0, type: 3}
+  idle: {fileID: 21300000, guid: dc735964b62b99743830e4c4db8e0c96, type: 3}
+  hover: {fileID: 21300000, guid: b2f9a2f8ba54aa54c9c91653ca693731, type: 3}
+  pressed: {fileID: 21300000, guid: 5a933894c99acbc47bf006ef6bd1cbac, type: 3}

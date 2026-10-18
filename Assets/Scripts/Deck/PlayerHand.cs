@@ -12,6 +12,8 @@ public class PlayerHand : MonoBehaviour
 
     [Header("Layout")]
     [SerializeField] private float spacing = 2.8f;
+    [Tooltip("Radio de la curva del tablero, en unidades locales de la mano. 0 = cartas en línea recta.")]
+    [SerializeField] private float curveRadius = 26f;
 
     [Header("Descarte")]
     [SerializeField] private DiscardPile discardPile;
@@ -53,7 +55,23 @@ public class PlayerHand : MonoBehaviour
     {
         float startX = -(cards.Count - 1) * spacing / 2f;
         for (int i = 0; i < cards.Count; i++)
-            cards[i].transform.localPosition = new Vector3(startX + i * spacing, 0f, 0f);
+            PlaceOnCurve(cards[i].transform, startX + i * spacing);
+    }
+
+    // Ubica la carta sobre un arco de círculo cuyo centro está abajo de la mano.
+    // x es la distancia medida sobre el arco desde el centro de la mano.
+    private void PlaceOnCurve(Transform card, float x)
+    {
+        if (curveRadius <= 0f)
+        {
+            card.localPosition = new Vector3(x, 0f, 0f);
+            card.localRotation = Quaternion.identity;
+            return;
+        }
+
+        float angle = x / curveRadius; // en radianes
+        card.localPosition = new Vector3(Mathf.Sin(angle) * curveRadius, (Mathf.Cos(angle) - 1f) * curveRadius, 0f);
+        card.localRotation = Quaternion.Euler(0f, 0f, -angle * Mathf.Rad2Deg);
     }
 
     public void PlayCard(CardView card)
