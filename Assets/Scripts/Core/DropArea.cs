@@ -11,9 +11,14 @@ public class DropArea : MonoBehaviour
     {
         // to access the dropped object
         PointerEventData pointerData = data as PointerEventData;
-
         if (pointerData == null) return;
 
+        if (!dialogueManager.CanReceiveCard)
+        {
+        Debug.Log("[DropArea] El diálogo no espera una carta ahora.");
+        return;
+        }
+        
         GameObject droppedObject = pointerData.pointerDrag;
 
         CardView cardView = droppedObject.GetComponent<CardView>();

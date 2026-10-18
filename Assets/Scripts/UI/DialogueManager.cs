@@ -32,6 +32,8 @@ public class DialogueManager : MonoBehaviour
     private Dictionary<string, DialogueNode> _nodes = new Dictionary<string, DialogueNode>();
     private DialogueNode _current;
 
+    public bool CanReceiveCard => _current != null && _current.IsQuestion && !NodeType.NI.Equals(_current.type);
+
     private void Awake()
     {
         LoadFromCSV();
@@ -225,9 +227,9 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (!_current.IsQuestion || NodeType.NI.Equals(_current.type))
+       if (!CanReceiveCard)
         {
-            Debug.LogWarning("[DialogueManager] Current node does not expect drop event.");
+            Debug.LogWarning("[DialogueManager] Current node does not expect a card.");
             return;
         }
 
