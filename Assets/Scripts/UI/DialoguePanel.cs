@@ -49,14 +49,9 @@ public class DialoguePanel : MonoBehaviour
 
     private void OnDialogueEnd()
     {
-        
-<<<<<<< HEAD
-        gameManager.FinishRun();
-=======
         gameObject.SetActive(false);
         // Se usa Instance porque sobrevive el GameManager de la primera escena cargada
         GameManager.Instance.FinishRun(dialogueManager.IsPresentEnding);
->>>>>>> refs/remotes/origin/main
     }
 
     private void OnDestroy()
