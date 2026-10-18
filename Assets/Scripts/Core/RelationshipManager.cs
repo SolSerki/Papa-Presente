@@ -18,10 +18,13 @@ public class RelationshipManager : MonoBehaviour
         set { _currentBondingStat = value; }
     }
 
+    public int MaxBondingStat { get => _maxBondingStat; }
+    public int InitialBondingStat { get => _initialBondingStat; }
+
     /// <summary>
     /// Subscribe to update UI
     /// </summary>
-    public event Action<int, int> OnLevelChanged; // (prevLevel, newLevel)
+    public event Action<int> OnLevelChanged; // (prevLevel, newLevel)
 
     private void Start()
     {
@@ -39,7 +42,7 @@ public class RelationshipManager : MonoBehaviour
 
     public void LoadInitialValues()
     {
-        _currentBondingStat = _initialBondingStat;
+        _currentBondingStat = InitialBondingStat;
     }
     /// <summary>
     /// The way you responde to requests impacts relationship.
@@ -55,7 +58,7 @@ public class RelationshipManager : MonoBehaviour
         Debug.Log($"[ApplyInteractionImpact] Previous relationship stat:{prev}, new: {_currentBondingStat}.");
         if (_currentBondingStat != prev)
         {
-            OnLevelChanged?.Invoke(prev, _currentBondingStat); // let the listener know
+            OnLevelChanged?.Invoke(_currentBondingStat); // let the listener know
             //Save();                               // should we do anything else?
         }
     }

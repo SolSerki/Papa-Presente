@@ -40,7 +40,6 @@ public class DialoguePanel : MonoBehaviour
     private void OnDialogueEnd()
     {
         
-        gameObject.SetActive(false);
         gameManager.FinishRun();
     }
 
