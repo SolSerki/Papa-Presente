@@ -233,7 +233,10 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        string nextId = isPresentResult(polarity, _current.type) ? _current.presentId : _current.absentId;
+        bool isDaddyPresent = isPresentResult(polarity, _current.type);
+        string nextId = isDaddyPresent ? _current.presentId : _current.absentId;
+
+        RelationshipManager.Instance.ApplyInteractionImpact(isDaddyPresent, 0);
 
         if (string.IsNullOrEmpty(nextId))
         {

@@ -33,9 +33,10 @@ public class DropArea : MonoBehaviour
         CardView cardView = droppedObject.GetComponent<CardView>();
         if (cardView != null && cardView.Data != null)
         {
+            Debug.Log($"[OnItemDropped] Card polarity {cardView.Data.Polarity}");
             dialogueManager.TriggerResponse(cardView.Data.Polarity);
             hand.PlayCard(cardView);
-            Debug.Log("dropped: " + droppedObject.name);
+            Debug.Log("[OnItemDropped] dropped: " + droppedObject.name);
         }
         else
         {
