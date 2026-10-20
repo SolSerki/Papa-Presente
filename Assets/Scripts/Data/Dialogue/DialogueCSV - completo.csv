@@ -4,14 +4,14 @@ intro2,NI,CAJA DE TEXTO,porque tu ex mujer tiene un viaje de negocios.,intro3,,
 intro3,NI,CAJA DE TEXTO,Intentaste negarte pero ella no pudo conseguir niñera y como vos estás desempleado tu vieja te rompió las pelotas.,intro4,,
 intro4,NI,CAJA DE TEXTO,"Este es el inicio de, quizá, una paternidad más presente.",intro5,,
 intro5,NI,CAJA DE TEXTO,Como rompen las bolas las mujeres.,1,,
-1,A,HIJA,"Che pa, ¿qué onda con la comida? ¿Por qué no te veo cocinando? entramos al colegio en 30 minutos y no comimos nada.",,1a,1b
+1,B,HIJA,"Che pa, ¿qué onda con la comida? ¿Por qué no te veo cocinando? entramos al colegio en 30 minutos y no comimos nada.",,1a,1b
 1a,NI,HIJA,"Bueno pá, no pasa nada, mañana nos organizamos mejor. Hoy nos las arreglamos en el cole con la copa de leche.",2,,
 1b,NI,HIJA,"Dale, estás en cualquiera. Ya fue, espero que en el colegio sobre algo de la copa de leche, capaz zafamos con eso.",2,,
 2,NI,"""NÚMERO DESCONOCIDO""","Disculpe, me pasó su número la madre de sus hijos.",2.1,,
-2.1,A,"""NÚMERO DESCONOCIDO""",Ellos están esperándo que los pase a buscar hace más de 30 minutos ¿vendrá a retirarlos? por ley no pueden salir solos.,,2a,2b
+2.1,B,"""NÚMERO DESCONOCIDO""",Ellos están esperándo que los pase a buscar hace más de 30 minutos ¿vendrá a retirarlos? por ley no pueden salir solos.,,2a,2b
 2a,NI,"""NÚMERO DESCONOCIDO""",Bueno aquí le avisamos a sus hijos que lo sigan esperando. Despreocupesé que están bien cuidados.,3,,
 2b,NI,"""NÚMERO DESCONOCIDO""",Esto es una situación de abandono. Si reitera esta actitud nosotros podemos intervenir para cuidar la integridad de los niños.,3,,
-3,B,HIJA,"¿Che, al final me compraste el mapa bicontinental de Argentina? La vieja dijo que sólo podemos llevar ese con la antártida e islas malvinas.",,3a,3b
+3,A,HIJA,"¿Che, al final me compraste el mapa bicontinental de Argentina? La vieja dijo que sólo podemos llevar ese con la antártida e islas malvinas.",,3a,3b
 3a,NI,HIJA,"Bueno seguro en internet debe haber uno subido, podríamos intentar calcarlo, no? ¿Querés que lo intentemos juntos?",4,,
 3b,NI,HIJA,"No boludo te la re mandás, voy a terminar bajando la nota por estar viviendo con vos 4 días.",4,,
 4,NI,La Jabru,Recién salgo de uno de los talleres del encuentro plurinacional y me quedé pensando en el pequeño terremoto que tenemos de hijo.,4.1,,
