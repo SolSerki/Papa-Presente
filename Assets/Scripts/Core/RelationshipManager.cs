@@ -20,6 +20,7 @@ public class RelationshipManager : MonoBehaviour
 
     public int MaxBondingStat { get => _maxBondingStat; }
     public int InitialBondingStat { get => _initialBondingStat; }
+    public int MinBondingStat { get => _minBondingStat; set => _minBondingStat = value; }
 
     /// <summary>
     /// Subscribe to update UI
@@ -54,12 +55,20 @@ public class RelationshipManager : MonoBehaviour
         int impact = CalculateImpactAmount(isPositive, bonus);
         Debug.Log($"[ApplyInteractionImpact] Interaction nature positive:{isPositive} impact:{impact}, bonus {bonus}.");
         int prev = _currentBondingStat;
-        _currentBondingStat = Mathf.Clamp(_currentBondingStat + impact, _minBondingStat ,_maxBondingStat ); // the function limits the range
+        _currentBondingStat = Mathf.Clamp(_currentBondingStat + impact, MinBondingStat ,_maxBondingStat ); // the function limits the range
         Debug.Log($"[ApplyInteractionImpact] Previous relationship stat:{prev}, new: {_currentBondingStat}.");
         if (_currentBondingStat != prev)
         {
             OnLevelChanged?.Invoke(_currentBondingStat); // let the listener know
             //Save();                               // should we do anything else?
+        }
+        if (_currentBondingStat == MaxBondingStat)
+        {
+            TriggerWin();
+        }
+        if (_currentBondingStat == MinBondingStat)
+        {
+            TriggerLose();
         }
     }
 
@@ -76,6 +85,17 @@ public class RelationshipManager : MonoBehaviour
             return  negativeResult;
         }
 
+    }
+
+
+    private void TriggerLose()
+    {
+        GameManager.Instance.LoadLoseScene();
+    }
+
+    private void TriggerWin()
+    {
+        GameManager.Instance.LoadWinScene();
     }
 
     public void Save()
