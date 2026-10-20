@@ -34,4 +34,10 @@ public class RelationshipBar : MonoBehaviour
         indicator.anchoredPosition = new Vector2(xPos, indicator.anchoredPosition.y);
 
     }
+
+    private void OnDestroy()
+    {
+        if (relationshipManager != null)
+            relationshipManager.OnLevelChanged -= UpdateBar;
+    }
 }

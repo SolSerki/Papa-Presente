@@ -63,7 +63,7 @@ public static GameManager Instance { get; private set; }
         if (LastReward != null)
             wonCards.Add(LastReward);
         else
-            Debug.LogWarning("[GameManager] No hay cartas de recompensa cargadas para este final.");
+            Debug.LogWarning("[GameManager] No won cards loaded for this ending.");
 
         ChangeScene(RUN_END_SCENE);
     }
@@ -84,6 +84,7 @@ public static GameManager Instance { get; private set; }
     {
         wonCards.Clear();
         LastReward = null;
+        RelationshipManager.Instance.LoadInitialValues();
     }
 
     private CardData PickRandom(List<CardData> pool)
