@@ -22,6 +22,8 @@ public static GameManager Instance { get; private set; }
     public static string RUN_END_SCENE = "RunEnd";
     public static string CREDITS_SCENE = "Credits";
     public static string SETTINGS_SCENE = "Settings";
+    public static string WIN_SCENE = "WinScene";
+    public static string LOSE_SCENE = "LoseScene";
 
     void Start()
     {
@@ -127,6 +129,16 @@ public static GameManager Instance { get; private set; }
     public void ReloadCurrentScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadLoseScene()
+    {
+        SceneManager.LoadScene(LOSE_SCENE);
+    }
+
+    public void LoadWinScene()
+    {
+        SceneManager.LoadScene(WIN_SCENE);
     }
 
     public void Exit()

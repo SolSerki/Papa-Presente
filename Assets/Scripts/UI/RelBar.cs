@@ -15,7 +15,7 @@ public class RelationshipBar : MonoBehaviour
         Canvas.ForceUpdateCanvases();
         barWidth = ((RectTransform)pinkFill.transform).rect.width;
         Debug.Log($"[RelationshipBar] width:{barWidth}");
-        UpdateBar(RelationshipManager.Instance.InitialBondingStat);
+        UpdateBar(RelationshipManager.Instance.CurrentBondingStat);
 
         relationshipManager = RelationshipManager.Instance;
         relationshipManager.OnLevelChanged += UpdateBar;
