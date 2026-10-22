@@ -12,10 +12,15 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Vector3 startLocalPosition;
     private int startSortingOrder;
     private Vector3 grabOffset;
+    private DropArea dropArea;
+    private CardView cardView;
 
     private void Awake()
     {
         cam = Camera.main;
+        // La carta sale de un prefab, así que el DropArea de la escena se busca acá
+        dropArea = FindAnyObjectByType<DropArea>();
+        cardView = GetComponent<CardView>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -39,6 +44,10 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         transform.localPosition = startLocalPosition;
         sortingGroup.sortingOrder = startSortingOrder;
         cardCollider.enabled = true;
+
+        // Soltarla fuera del tablero la juega
+        if (dropArea != null && dropArea.IsOutsideBoard(eventData.position))
+            dropArea.PlayDroppedCard(cardView);
     }
 
     private Vector3 PointerToWorld(PointerEventData eventData)

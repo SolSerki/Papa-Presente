@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class DropArea : MonoBehaviour
 {
@@ -7,12 +6,18 @@ public class DropArea : MonoBehaviour
     [SerializeField] private DialogueManager dialogueManager;
     [Header("Player Hand")]
     [SerializeField] private PlayerHand hand;
-    public void OnItemDropped(BaseEventData data)
-    {
-        // to access the dropped object
-        PointerEventData pointerData = data as PointerEventData;
-        if (pointerData == null) return;
+    [Header("Tablero")]
+    [Tooltip("Si la carta se suelta fuera de este rect, se juega.")]
+    [SerializeField] private RectTransform board;
 
+    public bool IsOutsideBoard(Vector2 screenPosition)
+    {
+        return !RectTransformUtility.RectangleContainsScreenPoint(board, screenPosition, Camera.main);
+    }
+
+    // Lo llama CardDrag al soltar una carta fuera del tablero
+    public void PlayDroppedCard(CardView droppedCard)
+    {
         // Mientras una estrategia pide elegir una carta para descartar, no se juega nada
         if (hand.IsSelectingDiscard)
         {
@@ -20,9 +25,14 @@ public class DropArea : MonoBehaviour
             return;
         }
 
+        if (droppedCard == null || droppedCard.Data == null)
+        {
+            Debug.LogWarning("[DropArea.PlayDroppedCard] No CardData assigned to Prefab, assign one in the inspector");
+            return;
+        }
+
         // Las estrategias no responden al diálogo, se juegan en cualquier momento.
-        CardView droppedCard = pointerData.pointerDrag.GetComponent<CardView>();
-        if (droppedCard != null && droppedCard.Data != null && droppedCard.Data.Polarity == CardPolarity.Strategy)
+        if (droppedCard.Data.Polarity == CardPolarity.Strategy)
         {
             hand.PlayStrategy(droppedCard);
             return;
@@ -30,23 +40,13 @@ public class DropArea : MonoBehaviour
 
         if (!dialogueManager.CanReceiveCard)
         {
-        Debug.Log("[DropArea] El diálogo no espera una carta ahora.");
-        return;
+            Debug.Log("[DropArea] El diálogo no espera una carta ahora.");
+            return;
         }
-        
-        GameObject droppedObject = pointerData.pointerDrag;
 
-        CardView cardView = droppedObject.GetComponent<CardView>();
-        if (cardView != null && cardView.Data != null)
-        {
-            Debug.Log($"[OnItemDropped] Card polarity {cardView.Data.Polarity}");
-            dialogueManager.TriggerResponse(cardView.Data.Polarity);
-            hand.PlayCard(cardView);
-            Debug.Log("[OnItemDropped] dropped: " + droppedObject.name);
-        }
-        else
-        {
-            Debug.LogWarning("[DropArea.OnItemDropped] No CardData assigned to Prefab, assign one in the inspector");
-        }
+        Debug.Log($"[PlayDroppedCard] Card polarity {droppedCard.Data.Polarity}");
+        dialogueManager.TriggerResponse(droppedCard.Data.Polarity);
+        hand.PlayCard(droppedCard);
+        Debug.Log("[PlayDroppedCard] dropped: " + droppedCard.name);
     }
 }
