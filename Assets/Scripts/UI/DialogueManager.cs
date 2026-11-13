@@ -33,6 +33,9 @@ public class DialogueManager : MonoBehaviour
     /// <summary>trigger when conversation ends.</summary>
     public event Action OnDialogueEnd;
 
+    /// <summary>Se avisa con la carta jugada, antes de mostrar el nodo de respuesta.</summary>
+    public event Action<CardPolarity> OnResponse;
+
     //Dialogue state
     private Dictionary<string, DialogueNode> _nodes = new Dictionary<string, DialogueNode>();
     private DialogueNode _current;
@@ -267,6 +270,8 @@ public class DialogueManager : MonoBehaviour
             AbsentCount++;
 
         string nextId = present ? _current.presentId : _current.absentId;
+
+        OnResponse?.Invoke(polarity);
 
         RelationshipManager.Instance.ApplyInteractionImpact(present, 0);
 

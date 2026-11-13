@@ -2138,13 +2138,18 @@ MonoBehaviour:
   image: {fileID: 1628552145}
   characters:
   - characterName: HIJA
-    sprite: {fileID: 21300000, guid: 8c1f243a042b37342812cd1570f60397, type: 3}
+    sprite: {fileID: -7910265677235520107, guid: 702efb25312e66b4cbc2b4ca08e93180, type: 3}
   - characterName: "N\xDAMERO DESCONOCIDO"
     sprite: {fileID: 21300000, guid: 6779d44fbec56f145b7e17d662a5e749, type: 3}
   - characterName: La Jabru
     sprite: {fileID: 21300000, guid: 6779d44fbec56f145b7e17d662a5e749, type: 3}
   - characterName: CAJA DE TEXTO
     sprite: {fileID: 0}
+  reactingCharacter: HIJA
+  goodReaction: {fileID: 1049530855149840543, guid: bd4ed95bb199b2842ac949f81c0faa12, type: 3}
+  neutralReaction: {fileID: -7910265677235520107, guid: 702efb25312e66b4cbc2b4ca08e93180, type: 3}
+  badReaction: {fileID: -3962516789272741, guid: bfc21d06c5562d94f93fbf4f4d0ea707, type: 3}
+  badStreakReaction: {fileID: -1522969135124781075, guid: c568ed89ac229244b951c3d97219e34c, type: 3}
 --- !u!1 &1435922037
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,7 +2486,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8c1f243a042b37342812cd1570f60397, type: 3}
+  m_Sprite: {fileID: -7910265677235520107, guid: 702efb25312e66b4cbc2b4ca08e93180, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
